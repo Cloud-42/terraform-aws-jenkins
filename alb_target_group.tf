@@ -1,6 +1,6 @@
-# ---------------------------------------------
+# --------------------------
 # ALB target group
-# ---------------------------------------------
+# --------------------------
 resource "aws_lb_target_group" "alb_target_group" {
   name     = "jenkins-${var.environment}-tg"
   port     = "${var.svc_port}"

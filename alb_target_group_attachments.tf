@@ -1,6 +1,6 @@
-# ---------------------------------------------
+# --------------------------
 #  ALB target group attachment
-# ---------------------------------------------
+# --------------------------
 resource "aws_autoscaling_attachment" "asg_attachment" {
   depends_on = ["aws_autoscaling_group.jenkins"]
 

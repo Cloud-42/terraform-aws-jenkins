@@ -1,6 +1,6 @@
-# ---------------------------------------------
+# --------------------------
 # ALB Listener
-# ---------------------------------------------
+# --------------------------
 resource "aws_alb_listener" "alb_listener" {
   depends_on        = ["aws_autoscaling_group.jenkins"]
   load_balancer_arn = "${aws_lb.jenkins.arn}"
