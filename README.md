@@ -6,6 +6,7 @@ Creates an auto-scaled, self healing, Jenkins Master server for use in AWS.
 
  * Jenkins Master ec2 instance, created via an AutoScaling Group "ASG".
  * Encrypted EFS share to host $JENKINS_HOME.
+ * EFS Mount points in 2x AZs.
  * Route 53 DNS "friendly" name.
  * Application Load balancer "ALB" , forwarding to the Jenkins Master.
  * Encrypted s3 bucket to which the Jenkins Master has access.
