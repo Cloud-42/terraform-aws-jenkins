@@ -10,6 +10,7 @@ Creates an auto-scaled, self healing, Jenkins Master server for use in AWS.
  * Application Load balancer "ALB" , forwarding to the Jenkins Master.
  * An encrypted s3 bucket to which the Jenkins Master has access.
  * Security groups "SG" for: ec2, ALB & EFS.
+ * ASG scheduled action to automatically deploy the latest WAR file.
  
 ##### Optional items:
 
