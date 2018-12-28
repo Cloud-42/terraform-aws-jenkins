@@ -11,7 +11,7 @@ resource "aws_efs_file_system" "this" {
   kms_key_id       = "${aws_kms_key.efskey.arn}"
 
   tags {
-    Name            = "${var.environment}_jenkins_ec2"
+    Name            = "${var.environment}_jenkins_efs"
     "Environment"   = "${var.environment}"
     "Orchestration" = "${var.orchestration}"
   }
