@@ -56,7 +56,7 @@ resource "aws_iam_role_policy" "ec2_policy" {
 "s3:*"
 ],
 "Resource": [
-"${aws_s3_bucket.s3.arn}"
+"${aws_s3_bucket.s3.arn}/*"
 ]
 }
 ]
