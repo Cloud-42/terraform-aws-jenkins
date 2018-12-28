@@ -31,4 +31,10 @@ resource "aws_autoscaling_group" "jenkins" {
     value               = "${var.orchestration}"
     propagate_at_launch = "true"
   }
+
+  tag {
+    key                 = "contact"
+    value               = "${var.contact}"
+    propagate_at_launch = "true"
+  }
 }
