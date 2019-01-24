@@ -6,7 +6,7 @@ resource "aws_route53_record" "alb" {
   # Endpoint DNS record
 
   zone_id = "${var.zone_id}"
-  name    = "jenkins"
+  name    = "${var.route53_endpoint_record}"
   type    = "CNAME"
   ttl     = "300"
 

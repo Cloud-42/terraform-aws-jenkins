@@ -1,3 +1,8 @@
+variable "route53_endpoint_record" {
+  description = "Route 53 endpoint name. Creates route53_endpoint_record.domain."
+  default     = "jenkins"
+}
+
 variable "ami" {
   description = "AMI to be used to build the ec2 instance (via launch config)"
 }
