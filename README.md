@@ -1,3 +1,13 @@
+<p align="center">
+  <a href="https://www.cloud42.io/" target="_blank" rel="Homepage">
+  <img width="200" height="200" src="https://www.cloud42.io/wp-content/uploads/2020/01/transparent_small.png">
+  </a>
+</p>
+
+---
+<p align="center">Need help with your Cloud builds <a href="https://www.cloud42.io/contact/" target="_blank" rel="ContactUS"> DROP US A LINE</a>.</p>
+
+---
 # Terraform AWS Jenkins Master module
 
 Creates an auto-scaled, self healing, Jenkins Master server for use in AWS. The Jenkins Master is created via an AutoScaling Group"ASG" and $JENKINS\_HOME is stored on an EFS share. When the ASG creates an ec2 host, the latest version of Jenkins is installed, the data directory $JENKINS\_HOME is then mounted. Once a week the ec2 host is recreated via an ASG scheduled action to ensure the latest version of the Jenkins WAR is being used. 
