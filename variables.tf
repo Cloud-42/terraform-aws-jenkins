@@ -1,3 +1,8 @@
+variable "autoscaling_schedule_create" {
+  description = "Allows for disabling of scheduled actions on ASG. Enabled by default"
+  default     = 1
+}
+
 variable "route53_endpoint_record" {
   description = "Route 53 endpoint name. Creates route53_endpoint_record.domain."
   default     = "jenkins"

@@ -4,6 +4,7 @@
 # --------------------------
 
 resource "aws_autoscaling_schedule" "scale_down" {
+  count                  = var.autoscaling_schedule_create != 0 ? 1 : 0
   scheduled_action_name  = "scale_down"
   min_size               = 0
   max_size               = 0
@@ -13,6 +14,7 @@ resource "aws_autoscaling_schedule" "scale_down" {
 }
 
 resource "aws_autoscaling_schedule" "scale_up" {
+  count                  = var.autoscaling_schedule_create != 0 ? 1 : 0
   scheduled_action_name  = "scale_up"
   min_size               = 1
   max_size               = 1
