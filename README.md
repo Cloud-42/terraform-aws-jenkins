@@ -28,7 +28,7 @@ Creates an auto-scaled, self healing, Jenkins Master server for use in AWS. The 
  * Jenkins Server is created automatically via the ASG.
  * Jenkins Server rebuilds once a week deploying all the latest security patches and the latest jenkins.war.
  * $JENKINS\_HOME is stored on the EFS share and mounts automatically.
- * Endpoint is only available via HTTPS.
+ * HTTP - auto re-directs to - HTTPS
  * data\_sources.tf can be used to look up the latest Ubuntu AMI to use.
  * The EFS share is encrytped using a custom KMS key.
 
