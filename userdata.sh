@@ -60,7 +60,7 @@ if [ $RESULTAMAZON -eq 0 ]; then
   /bin/yum update -y && /bin/yum install jenkins -y
   /bin/systemctl stop jenkins
   # Mount JENKINS_HOME -> EFS
-  /bin/sed -i '/JENKINS_HOME/c\JENKINS_HOME=/efsmnt' /etc/default/jenkins
+  /bin/sed -i '/JENKINS_HOME/c\JENKINS_HOME=/efsmnt' /etc/sysconfig/jenkins
   # Lets ensure state:
   #   * EFS mounted
   #   * Mounts are all working

@@ -19,8 +19,7 @@ Creates an auto-scaled, self healing, Jenkins Master server for use in AWS. The 
  * EFS Mount points in 2x AZs.
  * DNS friendly name in Route53 for connections.
  * Application Load balancer "ALB" , forwarding to the Jenkins Master.
- * s3 bucket to which the Jenkins Master has access.
- * Security groups "SG" for: ec2, ALB & EFS.
+ * Security groups "SG" for: ec2 & EFS.
  * ASG scheduled action to automatically deploy the latest WAR file, default = 00:00 - 00:30 each Sunday morning.
  * Custom KMS encryption keys for EFS.
  

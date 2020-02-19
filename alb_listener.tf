@@ -1,6 +1,23 @@
 # --------------------------
-# ALB Listener
+# ALB Listeners
+# HTTP -> AUTHO -> HTTPS
 # --------------------------
+resource "aws_lb_listener" "l1_alb_listener" {
+  count             = var.http_listener_required ? 1 : 0
+  load_balancer_arn = aws_lb.jenkins.arn
+  port              = var.listener1_alb_listener_port
+  protocol          = var.listener1_alb_listener_protocol
+
+  default_action {
+    type = "redirect"
+
+    redirect {
+      port        = "443"
+      protocol    = "HTTPS"
+      status_code = "HTTP_301"
+    }
+  }
+}
 resource "aws_alb_listener" "alb_listener" {
   depends_on        = [aws_autoscaling_group.jenkins]
   load_balancer_arn = aws_lb.jenkins.arn
