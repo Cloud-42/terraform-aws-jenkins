@@ -1,5 +1,15 @@
+variable "iam_instance_profile" {
+  description = "IAM instance profile for Jenkins server"
+  default     = null
+}
+
+variable "autoscaling_schedule_create" {
+  description = "Allows for disabling of scheduled actions on ASG. Enabled by default"
+  default     = 1
+}
+
 variable "route53_endpoint_record" {
-  description = "Route 53 endpoint name. Creates route53_endpoint_record.domain."
+  description = "Route 53 endpoint name. Creates route53_endpoint_record "
   default     = "jenkins"
 }
 
@@ -14,6 +24,11 @@ variable "success_codes" {
 
 variable "trusted_security_groups" {
   description = "List of the trusted secuirty groups that have ssh access to the ec2 host"
+}
+
+variable "security_group_alb" {
+  type        = list(string)
+  description = "ALB Security Group. Create outside of module and pass in"
 }
 
 variable "certificate_arn" {
@@ -108,6 +123,20 @@ variable "access_from" {
   default     = "0.0.0.0/0"
 }
 
+variable "http_listener_required" {
+  description = "Enables / Disables creating HTTP listener. Listener auto redirects to HTTPS"
+  default     = "true"
+}
+
+variable "listener1_alb_listener_port" {
+  description = "HTTP listener port"
+  default     = "80"
+}
+
+variable "listener1_alb_listener_protocol" {
+  description = "HTTP listener protocol"
+  default     = "HTTP"
+}
 # Listener port and protocol need to match
 variable "alb_listener_port" {
   description = "ALB listener port"
@@ -123,6 +152,7 @@ variable "healthy_threshold" {
   description = "ALB healthy count"
   default     = "2"
 }
+
 
 variable "unhealthy_threshold" {
   description = "ALB unhealthy count"
@@ -245,3 +275,4 @@ variable "scale_down_cron" {
   description = "The time when the recurring scale down action start.Cron format"
   default     = "0 0 * * SUN"
 }
+

@@ -5,7 +5,7 @@
 </p>
 
 ---
-<p align="center">Need help with your Cloud builds <a href="https://www.cloud42.io/contact/" target="_blank" rel="ContactUS"> DROP US A LINE</a>.</p>
+<p align="center">Need help with your Cloud builds <a href="https://www.cloud42.io/contact/" target="_blank" rel="ContactUS">GET IN TOUCH</a>.</p>
 
 ---
 # Terraform AWS Jenkins Master module
@@ -19,8 +19,7 @@ Creates an auto-scaled, self healing, Jenkins Master server for use in AWS. The 
  * EFS Mount points in 2x AZs.
  * DNS friendly name in Route53 for connections.
  * Application Load balancer "ALB" , forwarding to the Jenkins Master.
- * s3 bucket to which the Jenkins Master has access.
- * Security groups "SG" for: ec2, ALB & EFS.
+ * Security groups "SG" for: ec2 & EFS.
  * ASG scheduled action to automatically deploy the latest WAR file, default = 00:00 - 00:30 each Sunday morning.
  * Custom KMS encryption keys for EFS.
  
@@ -29,7 +28,7 @@ Creates an auto-scaled, self healing, Jenkins Master server for use in AWS. The 
  * Jenkins Server is created automatically via the ASG.
  * Jenkins Server rebuilds once a week deploying all the latest security patches and the latest jenkins.war.
  * $JENKINS\_HOME is stored on the EFS share and mounts automatically.
- * Endpoint is only available via HTTPS.
+ * HTTP - auto re-directs to - HTTPS
  * data\_sources.tf can be used to look up the latest Ubuntu AMI to use.
  * The EFS share is encrytped using a custom KMS key.
 
@@ -37,7 +36,7 @@ Creates an auto-scaled, self healing, Jenkins Master server for use in AWS. The 
 
  * A VPC is already in place
  * Route 53 zone is already in place
- * Terraform version >= 0.11.10
+ * Terraform version >= 0.12.20
  * AWS account
 
 ##### EFS Backups
@@ -46,7 +45,7 @@ Creates an auto-scaled, self healing, Jenkins Master server for use in AWS. The 
 
 ##### Current supported Operating Systems:
 
- * Ubuntu 16
-
+ * Ubuntu Server 18.04 LTS
+ * Amazon Linux 2
 
 
