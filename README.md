@@ -5,7 +5,7 @@
 </p>
 
 ---
-<p align="center">Need help with your Cloud builds <a href="https://www.cloud42.io/contact/" target="_blank" rel="ContactUS"> DROP US A LINE</a>.</p>
+<p align="center">Need help with your Cloud builds <a href="https://www.cloud42.io/contact/" target="_blank" rel="ContactUS">GET IN TOUCH</a>.</p>
 
 ---
 # Terraform AWS Jenkins Master module
@@ -37,7 +37,7 @@ Creates an auto-scaled, self healing, Jenkins Master server for use in AWS. The 
 
  * A VPC is already in place
  * Route 53 zone is already in place
- * Terraform version >= 0.11.10
+ * Terraform version >= 0.12.20
  * AWS account
 
 ##### EFS Backups
@@ -46,7 +46,7 @@ Creates an auto-scaled, self healing, Jenkins Master server for use in AWS. The 
 
 ##### Current supported Operating Systems:
 
- * Ubuntu 16
-
+ * Ubuntu Server 18.04 LTS
+ * Amazon Linux 2
 
 

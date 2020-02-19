@@ -10,5 +10,6 @@ resource "aws_kms_key" "efskey" {
 
 resource "aws_kms_alias" "efs" {
   name          = "alias/efs-jenkins-${var.environment}"
-  target_key_id = "${aws_kms_key.efskey.key_id}"
+  target_key_id = aws_kms_key.efskey.key_id
 }
+

@@ -245,3 +245,4 @@ variable "scale_down_cron" {
   description = "The time when the recurring scale down action start.Cron format"
   default     = "0 0 * * SUN"
 }
+

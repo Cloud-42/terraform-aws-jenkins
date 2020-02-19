@@ -2,9 +2,9 @@
 # IAM Role & IAM Profile
 # --------------------------
 resource "aws_iam_instance_profile" "ec2_profile" {
-  depends_on = ["aws_iam_role.ec2_role"]
+  depends_on = [aws_iam_role.ec2_role]
   name       = "ec2.jenkins.ec2-profile.${var.environment}"
-  role       = "${aws_iam_role.ec2_role.name}"
+  role       = aws_iam_role.ec2_role.name
 }
 
 resource "aws_iam_role" "ec2_role" {
@@ -25,6 +25,7 @@ resource "aws_iam_role" "ec2_role" {
 ]
 }
 EOF
+
 }
 
 # --------------------------
@@ -32,9 +33,9 @@ EOF
 # --------------------------
 
 resource "aws_iam_role_policy" "ec2_policy" {
-  depends_on = ["aws_iam_role.ec2_role"]
+  depends_on = [aws_iam_role.ec2_role]
   name       = "ec2.jenkins.${var.environment}.std.s3"
-  role       = "${aws_iam_role.ec2_role.id}"
+  role       = aws_iam_role.ec2_role.id
 
   policy = <<EOF
 {"Version": "2012-10-17",
@@ -62,4 +63,6 @@ resource "aws_iam_role_policy" "ec2_policy" {
 ]
 }
 EOF
+
 }
+

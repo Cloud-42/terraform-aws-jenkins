@@ -6,10 +6,11 @@ resource "aws_s3_bucket" "s3" {
   bucket = "${var.environment}-jenkins-data"
   acl    = "private"
 
-  tags {
+  tags = {
     Name          = "${var.environment}-jenkins-data"
-    environment   = "${var.environment}"
-    orchestration = "${var.orchestration}"
-    contact       = "${var.contact}"
+    environment   = var.environment
+    orchestration = var.orchestration
+    contact       = var.contact
   }
 }
+
