@@ -30,10 +30,11 @@ data "template_file" "user_data" {
   template = file("${path.module}/userdata.sh")
 
   vars = {
-    appliedhostname = var.hostname_prefix
-    domain_name     = var.domain_name
-    environment     = var.environment
-    efs_dnsname     = aws_efs_file_system.this.dns_name
+    appliedhostname         = var.hostname_prefix
+    domain_name             = var.domain_name
+    environment             = var.environment
+    efs_dnsname             = aws_efs_file_system.this.dns_name
+    supplementary_user_data = var.supplementary_user_data
   }
 }
 

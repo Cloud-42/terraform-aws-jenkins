@@ -36,7 +36,6 @@ if [ $RESULTUBUNTU -eq 0 ]; then
   chown jenkins:jenkins /efsmnt
   mount -a
   service jenkins start
-  exit
   
 fi
 
@@ -68,7 +67,9 @@ if [ $RESULTAMAZON -eq 0 ]; then
   /bin/chown jenkins:jenkins /efsmnt
   mount -a
   /bin/systemctl start jenkins && /bin/systemctl enable jenkins
-  exit
 
 fi
-
+# ----------------
+# Allow for additional commands
+# ----------------
+${supplementary_user_data}

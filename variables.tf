@@ -1,3 +1,8 @@
+variable "supplementary_user_data" {
+  description = "Supplementary shell script commands for adding to user data.Runs at the end of userdata"
+  default     = "#supplementary_user_data"
+}
+
 variable "iam_instance_profile" {
   description = "IAM instance profile for Jenkins server"
   default     = null
