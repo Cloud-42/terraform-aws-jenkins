@@ -29,7 +29,7 @@ Creates an auto-scaled, self healing, Jenkins Master server for use in AWS. The 
  * Jenkins Server rebuilds once a week deploying all the latest security patches and the latest jenkins.war.
  * $JENKINS\_HOME is stored on the EFS share and mounts automatically.
  * HTTP - auto re-directs to - HTTPS
- * data\_sources.tf can be used to look up the latest Ubuntu AMI to use.
+ * data\_sources.tf can be used to look up the latest AMI to use.
  * The EFS share is encrytped using a custom KMS key.
 
 ##### Dependencies and Prerequisites
@@ -41,7 +41,9 @@ Creates an auto-scaled, self healing, Jenkins Master server for use in AWS. The 
 
 ##### EFS Backups
 
- $JENKINS\_HOME is stored on an EFS Share. It is advisable to back this up. AWS provide an off-the-shelf solution that will do this automatically: https://aws.amazon.com/answers/infrastructure-management/efs-backup/. The solution is deployed via a CloudFormation template.
+ $JENKINS\_HOME is stored on an EFS Share. It is advisable to back this up. AWS provide 2 off-the-shelf solutions that will do this automatically: 
+ * https://aws.amazon.com/answers/infrastructure-management/efs-backup/. The solution is deployed via a CloudFormation template.
+ * AWS Backup - https://aws.amazon.com/backup/ ( Probably more straight forward to implement )
 
 ##### Current supported Operating Systems:
 
