@@ -17,7 +17,7 @@ variable "asg_tags" {
   default = [{
     key   = ""
     value = ""
-    propagate_at_launch = "" }]
+    propagate_at_launch = true }]
 }
 variable "supplementary_user_data" {
   description = "Supplementary shell script commands for adding to user data.Runs at the end of userdata"
