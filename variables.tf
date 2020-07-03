@@ -1,3 +1,8 @@
+variable "tags" {
+  description = "Tags map"
+  type        = map(string)
+  default     = {}
+}
 variable "supplementary_user_data" {
   description = "Supplementary shell script commands for adding to user data.Runs at the end of userdata"
   default     = "#supplementary_user_data"
@@ -15,23 +20,26 @@ variable "autoscaling_schedule_create" {
 
 variable "route53_endpoint_record" {
   description = "Route 53 endpoint name. Creates route53_endpoint_record "
+  type        = string
   default     = "jenkins"
 }
 
 variable "ami" {
+  type        = string
   description = "AMI to be used to build the ec2 instance (via launch config)"
 }
 
 variable "success_codes" {
   description = "Success Codes for the Target Group Health Checks. Default is 200 ( OK )"
+  type        = string
   default     = "200"
 }
 
-variable "trusted_security_groups" {
-  description = "List of the trusted secuirty groups that have ssh access to the ec2 host"
-}
+#variable "trusted_security_groups" {
+#  description = "List of the trusted secuirty groups that have ssh access to the ec2 host"
+#}
 
-variable "security_group_alb" {
+variable "sg_alb" {
   type        = list(string)
   description = "ALB Security Group. Create outside of module and pass in"
 }
@@ -55,15 +63,6 @@ variable "key_name" {
 variable "instance_type" {
   description = "ec2 instance type"
   default     = "t2.micro"
-}
-
-variable "root_volume_size" {
-  description = "ec2 host root volume size"
-  default     = "30"
-}
-
-variable "contact" {
-  description = "contact email address for the resources that will be created"
 }
 
 variable "hostname_prefix" {

@@ -1,6 +1,7 @@
 # --------------------------
 # ec2 ssh Security Group
 # --------------------------
+/*
 resource "aws_security_group" "ec2_ssh_sg" {
   name        = "${var.environment}.ec2.jenkins.ssh.sg"
   description = "Security group for controlling ssh access to Jenkins server."
@@ -28,10 +29,11 @@ resource "aws_security_group" "ec2_ssh_sg" {
     "orchestration" = var.orchestration
   }
 }
-
+*/
 # --------------------------
 # ec2 access Security Group
 # --------------------------
+/*
 resource "aws_security_group" "ec2_sg" {
   name        = "${var.environment}.ec2.jenkins.access.sg"
   description = "Security group for controlling access to the Jenkins instance."
@@ -58,7 +60,7 @@ resource "aws_security_group" "ec2_sg" {
     "Orchestration" = var.orchestration
   }
 }
-
+*/
 # --------------------------
 # EFS Security Groups
 # --------------------------
@@ -75,11 +77,7 @@ resource "aws_security_group" "private_subnet_a" {
     cidr_blocks = [var.subnet_a_ip_range]
   }
 
-  tags = {
-    "environment"   = var.environment
-    "contact"       = var.contact
-    "orchestration" = var.orchestration
-  }
+  tags = var.tags
 }
 
 resource "aws_security_group" "private_subnet_b" {
@@ -95,10 +93,6 @@ resource "aws_security_group" "private_subnet_b" {
     cidr_blocks = [var.subnet_b_ip_range]
   }
 
-  tags = {
-    "environment"   = var.environment
-    "contact"       = var.contact
-    "orchestration" = var.orchestration
-  }
+  tags = var.tags 
 }
 

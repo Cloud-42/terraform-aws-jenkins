@@ -15,6 +15,7 @@ resource "aws_launch_configuration" "jenkins" {
   root_block_device {
     volume_size = var.volume_size
     volume_type = var.volume_type
+    encrypted   = var.encrypted
   }
 
   # Create before destroy
