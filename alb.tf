@@ -8,7 +8,7 @@ resource "aws_lb" "jenkins" {
   enable_cross_zone_load_balancing = var.enable_cross_zone_load_balancing
   internal                         = var.internal
   load_balancer_type               = "application"
-  security_groups                  = var.sg_alb
+  security_groups                  = var.security_groups_alb
   subnets                          = split(",", var.subnets)
 
   enable_deletion_protection = var.enable_deletion_protection

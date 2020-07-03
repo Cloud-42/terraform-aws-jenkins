@@ -48,7 +48,7 @@ variable "success_codes" {
 #  description = "List of the trusted secuirty groups that have ssh access to the ec2 host"
 #}
 
-variable "sg_alb" {
+variable "security_groups_alb" {
   type        = list(string)
   description = "ALB Security Group. Create outside of module and pass in"
 }
