@@ -1,6 +1,6 @@
 variable "custom_userdata" {
   description = "Set custom userdata"
-  type        = string 
+  type        = string
   default     = ""
 }
 variable "create_dns_record" {
@@ -240,12 +240,12 @@ variable "private_subnet_b" {
 
 variable "security_groups_mount_target_a" {
   description = "Security groups to use for mount target subnet a"
-  type = list(string)
+  type        = list(string)
 }
 
 variable "security_groups_mount_target_b" {
   description = "Security groups to use for mount target subnet b"
-  type = list(string)
+  type        = list(string)
 }
 
 # ---------------------------
