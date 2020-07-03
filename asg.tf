@@ -13,5 +13,5 @@ resource "aws_autoscaling_group" "jenkins" {
   health_check_grace_period = var.health_check_grace_period
   health_check_type         = var.health_check_type
 
-  tags = var.tags
+  #tags = var.tags
 }
