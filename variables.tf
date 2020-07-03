@@ -215,11 +215,11 @@ variable "deletion_window_in_days" {
   description = "Number of days before permanent removal"
   default     = "30"
 }
-Variable "enable_key_rotation" {
+variable "enable_key_rotation" {
   description = "KMS key rotation"
-  type = bool
+  type        = bool
   default     = true
-} 
+}
 variable "performance_mode" {
   description = "EFS performance mode.https://docs.aws.amazon.com/efs/latest/ug/performance.html"
   default     = "generalPurpose"
