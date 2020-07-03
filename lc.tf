@@ -7,7 +7,7 @@ resource "aws_launch_configuration" "jenkins" {
   instance_type        = var.instance_type
   key_name             = var.key_name
   iam_instance_profile = var.iam_instance_profile
-  security_groups      = [aws_security_group.ec2_ssh_sg.id, aws_security_group.ec2_sg.id]
+  security_groups      = var.security_groups
   enable_monitoring    = var.enable_monitoring
   user_data            = data.template_file.user_data.rendered
 

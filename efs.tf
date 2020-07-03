@@ -8,7 +8,7 @@ resource "aws_efs_file_system" "this" {
   performance_mode = var.performance_mode
   kms_key_id       = aws_kms_key.efskey.arn
 
-  tags = var.tags 
+  tags = var.tags
 }
 
 # --------------------------

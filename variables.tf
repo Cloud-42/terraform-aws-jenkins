@@ -1,3 +1,7 @@
+variable "security_groups" {
+  description = "List of security groups to assign to the ec2 instance"
+  type        = list(string)
+}
 variable "tags" {
   description = "Tags map"
   type        = map(string)

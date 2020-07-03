@@ -93,6 +93,6 @@ resource "aws_security_group" "private_subnet_b" {
     cidr_blocks = [var.subnet_b_ip_range]
   }
 
-  tags = var.tags 
+  tags = var.tags
 }
 
