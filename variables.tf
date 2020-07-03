@@ -1,3 +1,8 @@
+variable "create_dns_record" {
+  description = "Create friendly DNS CNAME"
+  type        = bool
+  default     = true
+}
 variable "security_groups" {
   description = "List of security groups to assign to the ec2 instance"
   type        = list(string)
