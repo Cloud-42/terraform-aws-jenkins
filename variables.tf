@@ -15,7 +15,10 @@ variable "tags" {
 variable "asg_tags" {
   description = "Dynamic tags for ASG"
   type        = list(map)
-  default = [{ key = "" value = "" propogate_at_launch = "" }]  
+  default = [{
+    key   = ""
+    value = ""
+  propogate_at_launch = "" }]
 }
 variable "supplementary_user_data" {
   description = "Supplementary shell script commands for adding to user data.Runs at the end of userdata"
