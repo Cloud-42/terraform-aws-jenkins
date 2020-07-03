@@ -13,5 +13,9 @@ resource "aws_autoscaling_group" "jenkins" {
   health_check_grace_period = var.health_check_grace_period
   health_check_type         = var.health_check_type
 
-  tags = [var.tags]
+  tag {
+    key                 = "Name"
+    value               = "${var.environment}_jenkins_asg"
+    propagate_at_launch = "true"
+  } 
 }
