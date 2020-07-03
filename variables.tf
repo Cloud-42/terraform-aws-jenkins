@@ -98,7 +98,7 @@ variable "availability_zones" {
 
 variable "zone_id" {
   description = "Route 53 zone id"
-  default = null
+  default     = null
 }
 
 #variable "orchestration" {
@@ -114,6 +114,7 @@ variable "encrypted" {
 # ALB Vars
 # ---------------------------
 variable "subnets" {
+  type        = list(string)
   description = "Subnets where the ALB will be placed"
 }
 
