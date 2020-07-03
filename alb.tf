@@ -9,7 +9,7 @@ resource "aws_lb" "jenkins" {
   internal                         = var.internal
   load_balancer_type               = "application"
   security_groups                  = var.security_groups_alb
-  subnets                          = split(",", var.subnets)
+  subnets                          = var.subnets
 
   enable_deletion_protection = var.enable_deletion_protection
 
