@@ -2,7 +2,7 @@
 # EFS FileSystem
 # --------------------------
 resource "aws_efs_file_system" "this" {
-  depends_on = [aws_kms_key.efskey, aws_security_group.private_subnet_a, aws_security_group.private_subnet_b]
+  depends_on = [aws_kms_key.efskey]
 
   encrypted        = var.efs_encrypted
   performance_mode = var.performance_mode
