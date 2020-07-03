@@ -14,7 +14,6 @@ variable "tags" {
 }
 variable "asg_tags" {
   description = "Dynamic tags for ASG"
-  type        = list(map)
   default = [{
     key   = ""
     value = ""
