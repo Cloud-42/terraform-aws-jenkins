@@ -238,14 +238,6 @@ variable "private_subnet_b" {
   description = "2nd private subnet id"
 }
 
-variable "subnet_a_ip_range" {
-  description = "1st subnet IP range, grants access to EFS mount point a"
-}
-
-variable "subnet_b_ip_range" {
-  description = "2nd subnet IP range, grants access to EFS mount point b"
-}
-
 variable "security_groups_mount_target_a" {
   description = "Security groups to use for mount target subnet a"
   type = list(string)
