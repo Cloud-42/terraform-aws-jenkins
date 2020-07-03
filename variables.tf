@@ -98,6 +98,7 @@ variable "availability_zones" {
 
 variable "zone_id" {
   description = "Route 53 zone id"
+  default = null
 }
 
 #variable "orchestration" {
