@@ -1,7 +1,7 @@
 output "primary_aws_efs_mount_target" {
   count       = var.private_subnet_a != "" ? 1 : 0
   description = "IP address of primary EFS mount target"
-  value       = aws_efs_mount_target.private_subnet_a[count.index].ip_address
+  value       = ${aws_efs_mount_target.private_subnet_a.*.ip_address}
 }
 
 output "asg_id" {
