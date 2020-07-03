@@ -14,7 +14,6 @@ variable "tags" {
 }
 variable "asg_tags" {
   description = "Dynamic tags for ASG"
-  type        = set(map)
   default     = null
 }
 variable "supplementary_user_data" {
