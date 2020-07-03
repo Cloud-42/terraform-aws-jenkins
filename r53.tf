@@ -2,7 +2,7 @@
 # Route 53 entry for the ALB
 # --------------------------
 resource "aws_route53_record" "alb" {
-  count   = var.create_dns_record ? 1 : 0
+  count = var.create_dns_record ? 1 : 0
   # Endpoint DNS record
 
   zone_id = var.zone_id

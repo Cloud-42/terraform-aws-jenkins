@@ -100,9 +100,9 @@ variable "zone_id" {
   description = "Route 53 zone id"
 }
 
-variable "orchestration" {
-  description = "Link to the orchestration used. For example Bitbucket link."
-}
+#variable "orchestration" {
+#  description = "Link to the orchestration used. For example Bitbucket link."
+#}
 
 variable "encrypted" {
   description = "Enables / Disables encryption of volumes"
