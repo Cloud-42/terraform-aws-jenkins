@@ -18,7 +18,7 @@ resource "aws_efs_mount_target" "private_subnet_a" {
   depends_on      = [aws_efs_file_system.this]
   count           = var.private_subnet_b != "" ? 1 : 0
   file_system_id  = aws_efs_file_system.this.id
-  security_groups = [aws_security_group.private_subnet_a[0].id]
+  security_groups = var.security_groups_mount_target_a
   subnet_id       = var.private_subnet_a
 }
 
@@ -26,7 +26,7 @@ resource "aws_efs_mount_target" "private_subnet_b" {
   depends_on      = [aws_efs_file_system.this]
   count           = var.private_subnet_b != "" ? 1 : 0
   file_system_id  = aws_efs_file_system.this.id
-  security_groups = [aws_security_group.private_subnet_b[0].id]
+  security_groups = var.security_groups_mount_target_b
   subnet_id       = var.private_subnet_b
 }
 

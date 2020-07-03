@@ -57,10 +57,6 @@ variable "success_codes" {
   default     = "200"
 }
 
-#variable "trusted_security_groups" {
-#  description = "List of the trusted secuirty groups that have ssh access to the ec2 host"
-#}
-
 variable "security_groups_alb" {
   type        = list(string)
   description = "ALB Security Group. Create outside of module and pass in"
@@ -113,10 +109,6 @@ variable "zone_id" {
   description = "Route 53 zone id"
   default     = null
 }
-
-#variable "orchestration" {
-#  description = "Link to the orchestration used. For example Bitbucket link."
-#}
 
 variable "encrypted" {
   description = "Enables / Disables encryption of volumes"
@@ -252,6 +244,16 @@ variable "subnet_a_ip_range" {
 
 variable "subnet_b_ip_range" {
   description = "2nd subnet IP range, grants access to EFS mount point b"
+}
+
+variable "security_groups_mount_target_a" {
+  description = "Security groups to use for mount target subnet a"
+  type = list(string)
+}
+
+variable "security_groups_mount_target_b" {
+  description = "Security groups to use for mount target subnet b"
+  type = list(string)
 }
 
 # ---------------------------
