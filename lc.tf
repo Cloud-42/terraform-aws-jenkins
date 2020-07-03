@@ -9,7 +9,7 @@ resource "aws_launch_configuration" "jenkins" {
   iam_instance_profile = var.iam_instance_profile
   security_groups      = var.security_groups
   enable_monitoring    = var.enable_monitoring
-  user_data            = data.template_file.user_data.rendered
+  user_data            = var.custom_userdata != "" ? var.custom_userdata : data.template_file.user_data.rendered
 
   # Setup root block device
   root_block_device {

@@ -1,3 +1,8 @@
+variable "custom_userdata" {
+  description = "Set custom userdata"
+  type        = string 
+  default     = ""
+}
 variable "create_dns_record" {
   description = "Create friendly DNS CNAME"
   type        = bool
