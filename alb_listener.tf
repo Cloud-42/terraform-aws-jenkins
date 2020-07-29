@@ -1,6 +1,6 @@
 # --------------------------
 # ALB Listeners
-# HTTP -> AUTHO -> HTTPS
+# HTTP -> AUTO -> HTTPS
 # --------------------------
 resource "aws_lb_listener" "l1_alb_listener" {
   count             = var.http_listener_required ? 1 : 0
