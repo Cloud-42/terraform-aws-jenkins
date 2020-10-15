@@ -78,9 +78,6 @@ variable "hostname_prefix" {
 variable "domain_name" {
   description = "Domain Name"
 }
-variable "private_subnets" {
-  description = "Private subnets"
-}
 variable "availability_zones" {
   description = "Availability Zones"
 }
