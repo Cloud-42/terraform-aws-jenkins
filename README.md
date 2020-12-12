@@ -42,7 +42,7 @@ Creates an auto-scaled, self healing, Jenkins Master server for use in AWS.
  * Ubuntu Server 18.04 LTS
  * Amazon Linux 2
 
-###### Variables
+##### Variables
 
 | Name | Description | Default | Required |
 |------|-------------|---------|:--------:|
