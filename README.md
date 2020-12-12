@@ -49,7 +49,7 @@ Creates an auto-scaled, self healing, Jenkins Master server for use in AWS.
 | alb\_listener\_port | ALB listener port | `string` | `"443"` | no |
 | alb\_listener\_protocol | ALB listener protocol | `string` | `"HTTPS"` | no |
 | ami | AMI to be used to build the ec2 instance (via launch config) | `string` | n/a | yes |
-| asg\_tags | Dynamic tags for ASG | `list` | <pre>[<br>  {<br>    "key": "Name",<br>    "propagate_at_launch": true,<br>    "value": "tags need setting"<br>  }<br>]</pre> | no |
+| asg\_tags | Dynamic tags for ASG | `list` | "tags need setting" | no |
 | autoscaling\_schedule\_create | Allows for disabling of scheduled actions on ASG. Enabled by default | `number` | `1` | no |
 | availability\_zones | Availability Zones | `any` | n/a | yes |
 | certificate\_arn | ARN of the SSL certificate to use | `any` | n/a | yes |
