@@ -9,7 +9,7 @@ variable "create_dns_record" {
   default     = true
 }
 variable "security_groups" {
-  description = "List of security groups to assign to the ec2 instance"
+  description = "List of security groups to assign to the ec2 instance. Create outside of module and pass in"
   type        = list(string)
 }
 variable "tags" {
@@ -188,11 +188,11 @@ variable "private_subnet_b" {
   description = "2nd private subnet id"
 }
 variable "security_groups_mount_target_a" {
-  description = "Security groups to use for mount target subnet a"
+  description = "Security groups to use for mount target subnet a. Create outside of module and pass in"
   type        = list(string)
 }
 variable "security_groups_mount_target_b" {
-  description = "Security groups to use for mount target subnet b"
+  description = "Security groups to use for mount target subnet b. Create outside of module and pass in"
   type        = list(string)
 }
 # ---------------------------
