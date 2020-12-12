@@ -42,6 +42,13 @@ Creates an auto-scaled, self healing, Jenkins Master server for use in AWS.
  * Ubuntu Server 18.04 LTS
  * Amazon Linux 2
 
+##### Outputs
+
+| Name | Description |
+|------|-------------|
+| asg\_id | Jenkins ASG id |
+| efs\_dns\_name | DNS name of the EFS share |
+
 ##### Variables
 
 | Name | Description | Default | Required |
