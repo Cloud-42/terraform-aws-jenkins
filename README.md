@@ -15,6 +15,7 @@ Creates an auto-scaled, self healing, Jenkins Master server for use in AWS.
 ##### Prerequisites
 
  * A VPC is already in place
+ * DHCP options set to AmazonProvidedDNS
  * Route 53 zone is already in place ( Optional )
  * Terraform version >= 0.13
  * AWS account
@@ -27,7 +28,7 @@ Creates an auto-scaled, self healing, Jenkins Master server for use in AWS.
  * DNS friendly name in Route53 for connections ( Optional ).
  * Application Load balancer "ALB" , forwarding to the Jenkins Master.
  * Jenkins Server rebuilds once a week deploying all the latest security patches and the latest jenkins.war. Default = 00:00 - 00:30 each Sunday morning.
- * Custom KMS encryption keys for EFS.
+ * Custom KMS encryption key for EFS.
  * HTTP - auto re-directs to - HTTPS
  * data\_sources.tf can be used to look up the latest AMI to use.
  
