@@ -78,9 +78,6 @@ variable "hostname_prefix" {
 variable "domain_name" {
   description = "Domain Name"
 }
-variable "availability_zones" {
-  description = "Availability Zones"
-}
 variable "zone_id" {
   description = "Route 53 zone id"
   default     = null
