@@ -5,7 +5,7 @@
 </p>
 
 ---
-<p align="center">Need help with your Cloud builds <a href="https://www.cloud42.io/contact/" target="_blank" rel="ContactUS">GET IN TOUCH</a>.</p>
+<p align="center">Need help with your Cloud builds <a href = "mailto: hello@cloud42.io">GET IN TOUCH</a>
 
 ---
 # Terraform AWS Jenkins Master module
