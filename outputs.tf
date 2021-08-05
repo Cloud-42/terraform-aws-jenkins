@@ -12,3 +12,9 @@ output "lb_arn" {
   description = "Load balancer ARN"
   value       = aws_lb.jenkins.arn
 }
+
+output "lb_dns_name" {
+  description = "Load balancer DNS Name"
+  value       = aws_lb.jenkins.dns_name
+}
+
