@@ -18,3 +18,7 @@ output "lb_dns_name" {
   value       = aws_lb.jenkins.dns_name
 }
 
+output "lb_zone_id" {
+  description = "Load balancer zone id"
+  value       = aws_lb.jenkins.zone_id
+}
