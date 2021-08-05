@@ -8,3 +8,7 @@ output "efs_dns_name" {
   value       = aws_efs_file_system.this.dns_name
 }
 
+output "lb_arn" {
+  description = "Load balancer ARN"
+  value       = aws_lb.jenkins.arn
+}
