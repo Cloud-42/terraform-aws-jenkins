@@ -65,6 +65,8 @@ if [ $RESULTAMAZON -eq 0 ]; then
   # Set hostname, ensure it remains   
   hostnamectl set-hostname ${appliedhostname}.${domain_name}
   echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
+  # Add EPEL - deals with this issue - https://stackoverflow.com/questions/68915374/how-to-solve-error-during-jenkins-installation
+  amazon-linux-extras install epel -y 
   # Install Java
   /bin/yum install -y java-1.8.0-openjdk.x86_64
   # Create EFS mount folder & mount
