@@ -68,7 +68,7 @@ if [ $RESULTAMAZON -eq 0 ]; then
   # Add EPEL - deals with this issue - https://stackoverflow.com/questions/68915374/how-to-solve-error-during-jenkins-installation
   amazon-linux-extras install epel -y 
   # Install Java
-  /bin/yum install -y java-1.8.0-openjdk.x86_64
+  amazon-linux-extras install java-openjdk11
   # Create EFS mount folder & mount
   /bin/yum -y install nfs-utils
   mkdir /efsmnt
