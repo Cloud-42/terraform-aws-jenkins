@@ -16,9 +16,9 @@ if [ $RESULTUBUNTU -eq 0 ]; then
   #  Create initial hostname entry to remove:
   #  'unable to resolve host ubuntu' error
   echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
-  # Install Java 1.8.0_181
+  # Install Java 11
   /usr/bin/apt-get update -y
-  /usr/bin/apt install openjdk-8-jre-headless -y
+  /usr/bin/apt install openjdk-11-jdk -y
   # Create EFS mount folder & mount
   /usr/bin/apt-get install nfs-common -y
   mkdir /efsmnt
@@ -68,7 +68,7 @@ if [ $RESULTAMAZON -eq 0 ]; then
   # Add EPEL - deals with this issue - https://stackoverflow.com/questions/68915374/how-to-solve-error-during-jenkins-installation
   amazon-linux-extras install epel -y 
   # Install Java
-  /bin/yum install -y java-1.8.0-openjdk.x86_64
+  amazon-linux-extras install java-openjdk11 -y
   # Create EFS mount folder & mount
   /bin/yum -y install nfs-utils
   mkdir /efsmnt
