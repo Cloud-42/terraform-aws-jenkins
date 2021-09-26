@@ -16,9 +16,9 @@ if [ $RESULTUBUNTU -eq 0 ]; then
   #  Create initial hostname entry to remove:
   #  'unable to resolve host ubuntu' error
   echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
-  # Install Java 1.8.0_181
+  # Install Java 11
   /usr/bin/apt-get update -y
-  /usr/bin/apt install openjdk-8-jre-headless -y
+  /usr/bin/apt install openjdk-11-jdk -y
   # Create EFS mount folder & mount
   /usr/bin/apt-get install nfs-common -y
   mkdir /efsmnt
