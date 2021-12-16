@@ -1,4 +1,8 @@
 #!/bin/bash
+# ----------------
+# Allow for additional commands
+# ----------------
+${preliminary_user_data}
 
 # Mounting will be retried for 10 minutes (60 retries x 10 seconds)
 efs_mount_max_retry=60

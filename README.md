@@ -80,6 +80,7 @@ Auto-scaled, self healing, Jenkins Master server for use in AWS.
 | max\_size | AutoScaling Group max size | `number` | `1` | no |
 | min\_size | AutoScaling Group min size | `number` | `1` | no |
 | performance\_mode | EFS performance mode.https://docs.aws.amazon.com/efs/latest/ug/performance.html | `string` | `"generalPurpose"` | no |
+| preliminary\_user\_data | Preliminary shell script commands for adding to user data.Runs at the beginning of userdata | `string` | `"#preliminary_user_data"` | no |
 | private\_subnet\_a | 1st private subnet id | `string` | n/a | yes |
 | private\_subnet\_b | 2nd private subnet id | `string` | n/a | yes |
 | route53\_endpoint\_record | Route 53 endpoint name. Creates route53\_endpoint\_record | `string` | `"jenkins"` | no |
