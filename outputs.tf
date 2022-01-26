@@ -7,6 +7,11 @@ output "efs_dns_name" {
   description = "DNS name of the EFS share"
   value       = aws_efs_file_system.this.dns_name
 }
+  
+output "efs_id" {
+  description = "ID of the EFS share"
+  value       = aws_efs_file_system.this.id
+}
 
 output "lb_arn" {
   description = "Load balancer ARN"
