@@ -26,6 +26,11 @@ variable "asg_tags" {
     propagate_at_launch = true
   }]
 }
+variable "preliminary_user_data" {
+  type        = string
+  description = "Preliminary shell script commands for adding to user data.Runs at the beginning of userdata"
+  default     = "#preliminary_user_data"
+}
 variable "supplementary_user_data" {
   type        = string
   description = "Supplementary shell script commands for adding to user data.Runs at the end of userdata"

@@ -35,6 +35,7 @@ data "template_file" "user_data" {
     domain_name             = var.domain_name
     environment             = var.environment
     efs_dnsname             = aws_efs_file_system.this.dns_name
+    preliminary_user_data   = var.preliminary_user_data
     supplementary_user_data = var.supplementary_user_data
   }
 }
