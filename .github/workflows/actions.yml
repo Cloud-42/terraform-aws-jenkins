@@ -22,7 +22,7 @@ jobs:
           echo test, and deploy your project.
   container:
     runs-on: ubuntu-latest
-    container: ghcr.io/antonbabenko/pre-commit-terraform:
+    container: ghcr.io/antonbabenko/pre-commit-terraform
     steps:
       - run: |
            pre-commit --version
