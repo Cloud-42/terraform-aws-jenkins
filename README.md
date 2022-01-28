@@ -1,3 +1,5 @@
+[![CI](https://github.com/Cloud-42/terraform-aws-jenkins/actions/workflows/actions.yml/badge.svg)](https://github.com/Cloud-42/terraform-aws-jenkins/actions/workflows/actions.yml)
+
 <p align="center">
   <a href="https://www.cloud42.io/" target="_blank" rel="Homepage">
   <img width="200" height="200" src="https://www.cloud42.io/wp-content/uploads/2020/01/transparent_small.png">
@@ -116,5 +118,3 @@ Auto-scaled, self healing, Jenkins Master server for use in AWS.
 | <a name="output_lb_arn"></a> [lb\_arn](#output\_lb\_arn) | Load balancer ARN |
 | <a name="output_lb_dns_name"></a> [lb\_dns\_name](#output\_lb\_dns\_name) | Load balancer DNS Name |
 | <a name="output_lb_zone_id"></a> [lb\_zone\_id](#output\_lb\_zone\_id) | Load balancer zone id |
-
-[![CI](https://github.com/Cloud-42/terraform-aws-jenkins/actions/workflows/actions.yml/badge.svg)](https://github.com/Cloud-42/terraform-aws-jenkins/actions/workflows/actions.yml)
