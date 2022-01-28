@@ -11,6 +11,7 @@ resource "aws_lb" "jenkins" {
   security_groups                  = var.security_groups_alb
   subnets                          = var.subnets
 
+  drop_invalid_header_fields = var.drop_invalid_header_fields
   enable_deletion_protection = var.enable_deletion_protection
 
   tags = var.tags
