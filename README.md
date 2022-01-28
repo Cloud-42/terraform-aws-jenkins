@@ -116,3 +116,5 @@ Auto-scaled, self healing, Jenkins Master server for use in AWS.
 | <a name="output_lb_arn"></a> [lb\_arn](#output\_lb\_arn) | Load balancer ARN |
 | <a name="output_lb_dns_name"></a> [lb\_dns\_name](#output\_lb\_dns\_name) | Load balancer DNS Name |
 | <a name="output_lb_zone_id"></a> [lb\_zone\_id](#output\_lb\_zone\_id) | Load balancer zone id |
+
+[![CI](https://github.com/Cloud-42/terraform-aws-jenkins/actions/workflows/actions.yml/badge.svg)](https://github.com/Cloud-42/terraform-aws-jenkins/actions/workflows/actions.yml)
