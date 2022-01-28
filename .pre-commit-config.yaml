@@ -6,4 +6,6 @@ repos:
     - id: terraform_fmt
     - id: terraform_tflint
     - id: terraform_tfsec
-
+      args:
+        - --args=--exclude-downloaded-modules
+          -e aws-elbv2-alb-not-public,aws-vpc-use-secure-tls-policy
