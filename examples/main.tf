@@ -1,4 +1,10 @@
 # -----------------------
+# Zone
+# -----------------------
+resource "aws_route53_zone" "prd" {
+  name = "domain.io"
+}
+# -----------------------
 # Jenkins 
 # -----------------------
 module "jenkins" {
@@ -8,7 +14,7 @@ module "jenkins" {
 
   source  = "Cloud-42/jenkins/aws"
   version = "6.0.0"
-  
+
   instance_type        = "t3a.medium"
   iam_instance_profile = module.jenkins-role.profile.name
   key_name             = var.env
@@ -17,7 +23,7 @@ module "jenkins" {
   vpc_id               = module.vpc.vpc_id
   domain_name          = aws_route53_zone.prd.name
   ami                  = data.aws_ami.latest_amazon_linux_ami.id
-  certificate_arn      = module.acm.this_acm_certificate_arn
+  certificate_arn      = "arn:aws:acm:eu-west-1:012345678990:certificate/11277fc4-cf28-418e-a03d-c33d61317288"
   target_group_path    = "/login"
   tags                 = var.tags
   asg_tags = [{
@@ -126,7 +132,7 @@ module "vpc" {
   private_subnets = ["172.18.0.0/19", "172.18.32.0/19", "172.18.64.0/19"]
   public_subnets  = ["172.18.128.0/19", "172.18.160.0/19", "172.18.192.0/19"]
 
-  enable_nat_gateway       = true
-  enable_dns_hostnames     = true
-  tags                     = var.tags
+  enable_nat_gateway   = true
+  enable_dns_hostnames = true
+  tags                 = var.tags
 }
