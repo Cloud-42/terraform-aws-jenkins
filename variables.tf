@@ -192,6 +192,11 @@ variable "target_group_port" {
   description = "The port to use to connect with the target"
   default     = "8080"
 }
+variable "drop_invalid_header_fields" {
+  type        = bool
+  description = "Whether HTTP headers with header fields that are not valid are removed by the load balancer"
+  default     = true
+}
 # ---------------------------
 # EFS Vars
 # ---------------------------
