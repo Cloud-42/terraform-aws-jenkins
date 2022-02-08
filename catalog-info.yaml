@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: terraform-aws-jenkins
+  annotations:
+    github.com/project-slug: Cloud-42/terraform-aws-jenkins
+spec:
+  type: other
+  lifecycle: unknown
+  owner: chris@cloud42.io
