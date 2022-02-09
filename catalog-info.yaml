@@ -4,6 +4,7 @@ metadata:
   name: terraform-aws-jenkins
   annotations:
     github.com/project-slug: Cloud-42/terraform-aws-jenkins
+    backstage.io/techdocs-ref: dir:.
 spec:
   type: other
   lifecycle: unknown
