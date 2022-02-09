@@ -200,6 +200,11 @@ variable "drop_invalid_header_fields" {
 # ---------------------------
 # EFS Vars
 # ---------------------------
+variable "backup_policy" {
+  type        = string
+  description = "EFS backup policy"
+  default     = "ENABLED"
+}
 variable "efs_encrypted" {
   type        = bool
   description = "Encrypt the EFS share"
