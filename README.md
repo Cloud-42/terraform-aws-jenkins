@@ -36,9 +36,7 @@ Auto-scaled, self healing, Jenkins Master server for use in AWS.
  
 ##### EFS Backups
 
- $JENKINS\_HOME is stored on an EFS Share. It is advisable to back this up. AWS provide 2 off-the-shelf solutions that will do this automatically: 
- * https://aws.amazon.com/answers/infrastructure-management/efs-backup/. This solution is deployed via a CloudFormation template.
- * AWS Backup - https://aws.amazon.com/backup/ ( Probably more straight forward to implement )
+ * Enabled by default. Uses the automatic EFS backup facility. Backups deleted after 35 days. 
 
 ##### Current supported Operating Systems:
 
