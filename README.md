@@ -44,7 +44,6 @@ Auto-scaled, self healing, Jenkins Master server for use in AWS.
 
  * Ubuntu Server 20.04 LTS
  * Amazon Linux 2
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -54,12 +53,14 @@ Auto-scaled, self healing, Jenkins Master server for use in AWS.
 | <a name="input_ami"></a> [ami](#input\_ami) | AMI to be used to build the ec2 instance (via launch config) | `string` | n/a | yes |
 | <a name="input_asg_tags"></a> [asg\_tags](#input\_asg\_tags) | Dynamic tags for ASG | `any` | <pre>[<br>  {<br>    "key": "Name",<br>    "propagate_at_launch": true,<br>    "value": "tags need setting"<br>  }<br>]</pre> | no |
 | <a name="input_autoscaling_schedule_create"></a> [autoscaling\_schedule\_create](#input\_autoscaling\_schedule\_create) | Allows for disabling of scheduled actions on ASG. Enabled by default | `number` | `1` | no |
+| <a name="input_backup_policy"></a> [backup\_policy](#input\_backup\_policy) | EFS backup policy | `string` | `"ENABLED"` | no |
 | <a name="input_certificate_arn"></a> [certificate\_arn](#input\_certificate\_arn) | ARN of the SSL certificate to use | `string` | n/a | yes |
 | <a name="input_create_dns_record"></a> [create\_dns\_record](#input\_create\_dns\_record) | Create friendly DNS CNAME | `bool` | `true` | no |
 | <a name="input_custom_userdata"></a> [custom\_userdata](#input\_custom\_userdata) | Set custom userdata | `string` | `""` | no |
 | <a name="input_deletion_window_in_days"></a> [deletion\_window\_in\_days](#input\_deletion\_window\_in\_days) | Number of days before permanent removal | `number` | `"30"` | no |
 | <a name="input_desired_capacity"></a> [desired\_capacity](#input\_desired\_capacity) | AutoScaling Group desired capacity | `number` | `1` | no |
 | <a name="input_domain_name"></a> [domain\_name](#input\_domain\_name) | Domain Name | `string` | n/a | yes |
+| <a name="input_drop_invalid_header_fields"></a> [drop\_invalid\_header\_fields](#input\_drop\_invalid\_header\_fields) | Whether HTTP headers with header fields that are not valid are removed by the load balancer | `bool` | `true` | no |
 | <a name="input_efs_encrypted"></a> [efs\_encrypted](#input\_efs\_encrypted) | Encrypt the EFS share | `bool` | `true` | no |
 | <a name="input_enable_cross_zone_load_balancing"></a> [enable\_cross\_zone\_load\_balancing](#input\_enable\_cross\_zone\_load\_balancing) | Enable / Disable cross zone load balancing | `bool` | `false` | no |
 | <a name="input_enable_deletion_protection"></a> [enable\_deletion\_protection](#input\_enable\_deletion\_protection) | Enable / Disable deletion protection for the ALB. | `bool` | `false` | no |
