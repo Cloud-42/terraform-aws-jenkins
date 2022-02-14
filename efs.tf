@@ -30,3 +30,13 @@ resource "aws_efs_mount_target" "private_subnet_b" {
   subnet_id       = var.private_subnet_b
 }
 
+# --------------------------
+# EFS backup
+# --------------------------
+resource "aws_efs_backup_policy" "backup_policy" {
+  file_system_id = aws_efs_file_system.this.id
+
+  backup_policy {
+    status = var.backup_policy
+  }
+}
