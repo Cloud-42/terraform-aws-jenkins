@@ -92,6 +92,7 @@ Auto-scaled, self healing, Jenkins Master server for use in AWS.
 | <a name="input_security_groups_alb"></a> [security\_groups\_alb](#input\_security\_groups\_alb) | ALB Security Group. Create outside of module and pass in | `list(string)` | n/a | yes |
 | <a name="input_security_groups_mount_target_a"></a> [security\_groups\_mount\_target\_a](#input\_security\_groups\_mount\_target\_a) | Security groups to use for mount target subnet a. Create outside of module and pass in | `list(string)` | n/a | yes |
 | <a name="input_security_groups_mount_target_b"></a> [security\_groups\_mount\_target\_b](#input\_security\_groups\_mount\_target\_b) | Security groups to use for mount target subnet b. Create outside of module and pass in | `list(string)` | n/a | yes |
+| <a name="input_ssl_policy"></a> [ssl\_policy](#input\_ssl\_policy) | Name of the SSL Policy for the listener | `string` | `"ELBSecurityPolicy-TLS-1-2-Ext-2018-06"` | no |
 | <a name="input_subnets"></a> [subnets](#input\_subnets) | Subnets where the ALB will be placed | `list(string)` | n/a | yes |
 | <a name="input_success_codes"></a> [success\_codes](#input\_success\_codes) | Success Codes for the Target Group Health Checks. Default is 200 ( OK ) | `string` | `"200"` | no |
 | <a name="input_supplementary_user_data"></a> [supplementary\_user\_data](#input\_supplementary\_user\_data) | Supplementary shell script commands for adding to user data.Runs at the end of userdata | `string` | `"#supplementary_user_data"` | no |
