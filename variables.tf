@@ -64,6 +64,11 @@ variable "security_groups_alb" {
   type        = list(string)
   description = "ALB Security Group. Create outside of module and pass in"
 }
+variable "ssl_policy" {
+  type        = string
+  description = "Name of the SSL Policy for the listener"
+  default     = "ELBSecurityPolicy-TLS-1-2-Ext-2018-06"
+}
 variable "certificate_arn" {
   type        = string
   description = "ARN of the SSL certificate to use"
