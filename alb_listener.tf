@@ -23,6 +23,7 @@ resource "aws_alb_listener" "alb_listener" {
   load_balancer_arn = aws_lb.jenkins.arn
   port              = var.alb_listener_port
   protocol          = var.alb_listener_protocol
+  ssl_policy        = var.ssl_policy
   certificate_arn   = var.certificate_arn
 
   default_action {
