@@ -50,15 +50,16 @@ if [ $RESULTUBUNTU -eq 0 ]; then
   chown jenkins:jenkins /efsmnt
   apt-get install --only-upgrade jenkins -y
   # Mount JENKINS_HOME -> EFS
-  sed -i '/JENKINS_HOME/c\JENKINS_HOME=/efsmnt' /etc/default/jenkins
+  /bin/sed -i '/JENKINS_HOME=/c\Environment="JENKINS_HOME=/efsmnt"' /usr/lib/systemd/system/jenkins.service
+  /bin/sed -i '/WorkingDirectory=/c\WorkingDirectory=/efsmnt' /usr/lib/systemd/system/jenkins.service
   # Lets ensure state:
   #   * EFS mounted
   #   * Mounts are all working
   #   * Jenkins user and group own /efsmnt 
-  service jenkins stop
-  chown jenkins:jenkins /efsmnt
+  /bin/systemctl stop jenkins
+  /bin/chown jenkins:jenkins /efsmnt
   mount -a
-  service jenkins start
+  /bin/systemctl daemon-reload && /bin/systemctl start jenkins && /bin/systemctl enable jenkins
   
 fi
 
@@ -96,14 +97,15 @@ if [ $RESULTAMAZON -eq 0 ]; then
   /bin/yum update -y && /bin/yum install jenkins -y
   /bin/systemctl stop jenkins
   # Mount JENKINS_HOME -> EFS
-  /bin/sed -i '/JENKINS_HOME/c\JENKINS_HOME=/efsmnt' /etc/sysconfig/jenkins
+  /bin/sed -i '/JENKINS_HOME=/c\Environment="JENKINS_HOME=/efsmnt"' /usr/lib/systemd/system/jenkins.service
+  /bin/sed -i '/WorkingDirectory=/c\WorkingDirectory=/efsmnt' /usr/lib/systemd/system/jenkins.service
   # Lets ensure state:
   #   * EFS mounted
   #   * Mounts are all working
   #   * Jenkins user and group own /efsmnt 
   /bin/chown jenkins:jenkins /efsmnt
   mount -a
-  /bin/systemctl start jenkins && /bin/systemctl enable jenkins
+  /bin/systemctl daemon-reload && /bin/systemctl start jenkins && /bin/systemctl enable jenkins
 
 fi
 # ----------------
