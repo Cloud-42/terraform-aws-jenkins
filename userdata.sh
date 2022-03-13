@@ -56,10 +56,10 @@ if [ $RESULTUBUNTU -eq 0 ]; then
   #   * EFS mounted
   #   * Mounts are all working
   #   * Jenkins user and group own /efsmnt 
-  service jenkins stop
-  chown jenkins:jenkins /efsmnt
+  /bin/systemctl stop jenkins
+  /bin/chown jenkins:jenkins /efsmnt
   mount -a
-  service jenkins start
+  /bin/systemctl daemon-reload && /bin/systemctl start jenkins && /bin/systemctl enable jenkins
   
 fi
 
