@@ -93,7 +93,7 @@ if [ $RESULTAMAZON -eq 0 ]; then
   echo '${efs_dnsname}:/ /efsmnt nfs defaults,_netdev 0 0' >> /etc/fstab
   # Install Jenkins
   /bin/curl --silent --location http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo | sudo tee /etc/yum.repos.d/jenkins.repo
-  /bin/rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+  /bin/rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
   /bin/yum update -y && /bin/yum install jenkins -y
   /bin/systemctl stop jenkins
   # Mount JENKINS_HOME -> EFS
