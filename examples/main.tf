@@ -14,7 +14,7 @@ module "jenkins" {
   ]
 
   source  = "Cloud-42/jenkins/aws"
-  version = "8.0.0"
+  version = "8.2.0"
 
   instance_type        = "t3a.medium"
   iam_instance_profile = module.jenkins-role.profile.name
