@@ -230,22 +230,15 @@ variable "performance_mode" {
   description = "EFS performance mode.https://docs.aws.amazon.com/efs/latest/ug/performance.html"
   default     = "generalPurpose"
 }
-variable "private_subnet_a" {
-  type        = string
-  description = "1st private subnet id"
+variable "private_subnets" {
+  type        = set(any)
+  description = "IDs of private subnets"
 }
-variable "private_subnet_b" {
-  type        = string
-  description = "2nd private subnet id"
-}
-variable "security_groups_mount_target_a" {
+variable "security_groups_mount_target" {
   type        = list(string)
   description = "Security groups to use for mount target subnet a. Create outside of module and pass in"
 }
-variable "security_groups_mount_target_b" {
-  type        = list(string)
-  description = "Security groups to use for mount target subnet b. Create outside of module and pass in"
-}
+
 # ---------------------------
 # ASG & LC Vars
 # ---------------------------
@@ -263,10 +256,6 @@ variable "desired_capacity" {
   type        = number
   description = "AutoScaling Group desired capacity"
   default     = 1
-}
-variable "vpc_zone_identifier" {
-  type        = list(string)
-  description = "A list of subnet IDs to launch AutoScaling resources in."
 }
 variable "enable_monitoring" {
   type        = bool
