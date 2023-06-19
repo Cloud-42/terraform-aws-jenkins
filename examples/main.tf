@@ -2,18 +2,19 @@
 # Zone
 # -----------------------
 resource "aws_route53_zone" "prd" {
-  name = "domain.io"
+  name = "test.domain.io"
 }
 # -----------------------
 # Jenkins 
 # -----------------------
 module "jenkins" {
   depends_on = [module.jenkins-efs-sg,
-    module.jenkins-alb-sg
+    module.jenkins-alb-sg,
+    module.vpc
   ]
 
   source  = "Cloud-42/jenkins/aws"
-  version = "7.0.0"
+  version = "8.0.0"
 
   instance_type        = "t3a.medium"
   iam_instance_profile = module.jenkins-role.profile.name
@@ -45,24 +46,21 @@ module "jenkins" {
   #
   # Security Groups
   #
-  security_groups                = [module.jenkins-ec2-sg.this_security_group_id]
-  security_groups_alb            = [module.jenkins-alb-sg.this_security_group_id]
-  security_groups_mount_target_a = [module.jenkins-efs-sg.this_security_group_id]
-  security_groups_mount_target_b = [module.jenkins-efs-sg.this_security_group_id]
+  security_groups              = [module.jenkins-ec2-sg.security_group_id]
+  security_groups_alb          = [module.jenkins-alb-sg.security_group_id]
+  security_groups_mount_target = [module.jenkins-efs-sg.security_group_id]
   #
   # subnet assignments
   #
-  private_subnet_a    = module.vpc.private_subnets[0]
-  private_subnet_b    = module.vpc.private_subnets[1]
-  subnets             = module.vpc.public_subnets
-  vpc_zone_identifier = [module.vpc.private_subnets[0], module.vpc.private_subnets[1]]
+  private_subnets = toset(module.vpc.private_subnets)
+  subnets         = module.vpc.public_subnets
 }
 # -----------------------------
 # Security Groups
 # ------------------------------
 module "jenkins-efs-sg" {
   source  = "terraform-aws-modules/security-group/aws"
-  version = "3.17.0"
+  version = "5.1.0"
 
   name        = "jenkins-efs-sg"
   description = "Security group for Jenkins EFS"
@@ -74,7 +72,7 @@ module "jenkins-efs-sg" {
 }
 module "jenkins-alb-sg" {
   source  = "terraform-aws-modules/security-group/aws"
-  version = "3.17.0"
+  version = "5.1.0"
 
   name        = "jenkins-alb-sg"
   description = "Security group for access to Jenkins endpoint"
@@ -87,7 +85,7 @@ module "jenkins-alb-sg" {
 module "jenkins-ec2-sg" {
   depends_on = [module.jenkins-alb-sg]
   source     = "terraform-aws-modules/security-group/aws"
-  version    = "3.17.0"
+  version    = "5.1.0"
 
   name        = "jenkins-sg"
   description = "Security group for Jenkins host"
@@ -99,7 +97,7 @@ module "jenkins-ec2-sg" {
       to_port                  = 8080
       protocol                 = 6
       description              = "Jenkins ALB"
-      source_security_group_id = module.jenkins-alb-sg.this_security_group_id
+      source_security_group_id = module.jenkins-alb-sg.security_group_id
     },
   ]
 
@@ -115,7 +113,8 @@ module "jenkins-role" {
   name = "jenkins"
 
   policy_arn = [
-    "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess",
+    "arn:aws:iam::aws:policy/AmazonSSMReadOnlyAccess",
+    "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
   ]
 }
 # -----------------------
@@ -123,7 +122,7 @@ module "jenkins-role" {
 # -----------------------
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "2.65.0"
+  version = "5.0.0"
 
   name = var.env
   cidr = "172.18.0.0/16"
@@ -133,6 +132,7 @@ module "vpc" {
   public_subnets  = ["172.18.128.0/19", "172.18.160.0/19", "172.18.192.0/19"]
 
   enable_nat_gateway   = true
+  single_nat_gateway   = true
   enable_dns_hostnames = true
   tags                 = var.tags
 }

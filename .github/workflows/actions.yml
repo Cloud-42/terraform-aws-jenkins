@@ -10,11 +10,37 @@ on:
   workflow_dispatch:
 
 jobs:
-  container:
+  pre-commit:
     runs-on: ubuntu-latest
-    container: ghcr.io/antonbabenko/pre-commit-terraform:v1.62.3
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+      - uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: "1.5.0"
+      - name: Install pre-commit dependencies
+        run: |
+          pip3 install checkov
+          curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
+          curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash
+          curl -sSLo ./terraform-docs.tar.gz https://terraform-docs.io/dl/v0.16.0/terraform-docs-v0.16.0-$(uname)-amd64.tar.gz
+          mkdir -p ${HOME}/.local/bin
+          tar -xzf terraform-docs.tar.gz -C ${HOME}/.local/bin
+          chmod +x ${HOME}/.local/bin/terraform-docs
+          echo "${HOME}/.local/bin" >> $GITHUB_PATH
+      - uses: pre-commit/action@v3.0.0
+
+  danger-checks:
+    runs-on: ubuntu-latest
+    container: registry.gitlab.com/gitlab-org/gitlab-build-images:danger
+    if: always()
+    steps:
+      - name: git checkout
+        uses: actions/checkout@v3
       - run: |
-           pre-commit run -a
-        name: pre-commit check 
+           git config --global --add safe.directory '*'
+           ls -la 
+           danger --fail-on-errors=true
+        env:
+          DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        name: danger check

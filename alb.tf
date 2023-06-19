@@ -6,10 +6,11 @@ resource "aws_lb" "jenkins" {
   name = "${var.environment}-jenkins-alb"
 
   enable_cross_zone_load_balancing = var.enable_cross_zone_load_balancing
-  internal                         = var.internal
-  load_balancer_type               = "application"
-  security_groups                  = var.security_groups_alb
-  subnets                          = var.subnets
+  #tfsec:ignore:aws-elb-alb-not-public
+  internal           = var.internal
+  load_balancer_type = "application"
+  security_groups    = var.security_groups_alb
+  subnets            = var.subnets
 
   drop_invalid_header_fields = var.drop_invalid_header_fields
   enable_deletion_protection = var.enable_deletion_protection

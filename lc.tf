@@ -10,6 +10,9 @@ resource "aws_launch_configuration" "jenkins" {
   security_groups      = var.security_groups
   enable_monitoring    = var.enable_monitoring
   user_data            = var.custom_userdata != "" ? var.custom_userdata : data.template_file.user_data.rendered
+  metadata_options {
+    http_tokens = "required"
+  }
 
   # Setup root block device
   root_block_device {
