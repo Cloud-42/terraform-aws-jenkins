@@ -1,3 +1,15 @@
+# [8.2.0](https://github.com/Cloud-42/terraform-aws-jenkins/compare/v8.1.0...v8.2.0) (2023-06-19)
+
+
+### Bug Fixes
+
+* add releaserc config ([d32e593](https://github.com/Cloud-42/terraform-aws-jenkins/commit/d32e59316e525ab17a69360b6a48584891f5a9a3))
+
+
+### Features
+
+* terraform upgrade and danger check ([be32c03](https://github.com/Cloud-42/terraform-aws-jenkins/commit/be32c03e6207d7da55c0fa92616946654e37491c))
+
 # 1.0.0 (2023-06-19)
 
 
