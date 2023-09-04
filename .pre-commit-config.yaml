@@ -1,11 +1,15 @@
 repos:
 - repo: https://github.com/antonbabenko/pre-commit-terraform
-  rev: v1.62.3
+  rev: v1.81.0
   hooks:
     - id: terraform_validate
+      exclude: ^examples/
     - id: terraform_fmt
+      exclude: ^examples/
     - id: terraform_tflint
+      exclude: ^examples/
     - id: terraform_tfsec
+      exclude: ^examples/
       args:
         - --args=--exclude-downloaded-modules
           -e aws-elbv2-alb-not-public,aws-vpc-use-secure-tls-policy
