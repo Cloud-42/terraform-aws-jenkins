@@ -27,8 +27,9 @@ resource "aws_launch_configuration" "jenkins" {
   }
 
   metadata_options {
-    http_endpoint = "enabled"
-    http_tokens   = "required"
+    http_endpoint               = "enabled"
+    http_tokens                 = "required"
+    http_put_response_hop_limit = 3
   }
 
   # Create before destroy
