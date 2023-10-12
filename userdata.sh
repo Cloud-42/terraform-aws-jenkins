@@ -75,7 +75,7 @@ if [ $RESULTAMAZON -eq 0 ]; then
   # Install Java
   amazon-linux-extras install java-openjdk11 -y
   # Create EFS mount folder & mount
-  /bin/yum -y install nfs-utils
+  /bin/yum -y install nfs-utils docker
   mkdir /efsmnt
   echo 'Attempting to mount EFS filesystem ${efs_dnsname}...'
   counter=0
@@ -103,6 +103,7 @@ if [ $RESULTAMAZON -eq 0 ]; then
   #   * EFS mounted
   #   * Mounts are all working
   #   * Jenkins user and group own /efsmnt 
+  /sbin/usermod -a -G docker jenkins
   /bin/chown jenkins:jenkins /efsmnt
   mount -a
   /bin/systemctl daemon-reload && /bin/systemctl start jenkins && /bin/systemctl enable jenkins
