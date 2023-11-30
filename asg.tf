@@ -14,7 +14,7 @@ resource "aws_autoscaling_group" "jenkins" {
   health_check_type         = var.health_check_type
 
   lifecycle {
-    ignore_changes = [load_balancers, target_group_arns, mixed_instances_policy]
+    ignore_changes = [load_balancers, target_group_arns, mixed_instances_policy["instances_distribution"]]
   }
 
   dynamic "tag" {
