@@ -18,10 +18,6 @@ resource "aws_launch_configuration" "jenkins" {
       preliminary_user_data   = var.preliminary_user_data
       supplementary_user_data = var.supplementary_user_data
   })
-  metadata_options {
-    http_endpoint = "enabled"
-    http_tokens   = "required"
-  }
 
   # Setup root block device
   root_block_device {
