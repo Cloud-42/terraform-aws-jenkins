@@ -5,7 +5,7 @@ resource "aws_route53_zone" "prd" {
   name = "test.domain.io"
 }
 # -----------------------
-# Jenkins 
+# Jenkins
 # -----------------------
 module "jenkins" {
   depends_on = [module.jenkins-efs-sg,
@@ -14,7 +14,7 @@ module "jenkins" {
   ]
 
   source  = "Cloud-42/jenkins/aws"
-  version = "8.2.0"
+  version = "8.3.0"
 
   instance_type        = "t3a.medium"
   iam_instance_profile = module.jenkins-role.profile.name
@@ -122,7 +122,7 @@ module "jenkins-role" {
 # -----------------------
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "5.0.0"
+  version = "5.5.1"
 
   name = var.env
   cidr = "172.18.0.0/16"
