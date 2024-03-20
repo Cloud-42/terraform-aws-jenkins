@@ -2,8 +2,8 @@
 # Jenkins Auto-Scaling Group
 # --------------------------
 resource "aws_autoscaling_group" "jenkins" {
-  depends_on = [aws_efs_file_system.this, aws_launch_configuration.jenkins]
-
+  depends_on                = [aws_efs_file_system.this, aws_launch_configuration.jenkins]
+  capacity_rebalance        = true
   name                      = "${var.environment}_jenkins_asg"
   max_size                  = var.max_size
   min_size                  = var.min_size
@@ -14,7 +14,7 @@ resource "aws_autoscaling_group" "jenkins" {
   health_check_type         = var.health_check_type
 
   lifecycle {
-    ignore_changes = [load_balancers, target_group_arns]
+    ignore_changes = [load_balancers, target_group_arns, mixed_instances_policy["instances_distribution"]]
   }
 
   dynamic "tag" {
